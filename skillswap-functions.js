@@ -15,4 +15,9 @@ function filterSkillsByCategory(skills, category){
     return result;
 }
 
-module.exports = {filterSkillsByCategory};
+// function for calculating the cost based on price and hours
+function calculateTotalCost(price, hours){
+    return price*hours
+}
+
+module.exports = {filterSkillsByCategory, calculateTotalCost};
