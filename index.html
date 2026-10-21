@@ -45,6 +45,20 @@
                 <button class="filter" data-category="Career">Career</button>
         </div>
 
+        <!--calculator UI-->
+        <section class="calculator">
+            <!--let user input the hourly price of the lesson-->
+            <label for="price">Price ($/hr)</label>
+            <input type="number" id="price">
+            <!--let user input the hours-->
+            <label for="hour">Hours</label>
+            <input type="number" id="hour">
+            <!--button to implement the calculation-->
+            <button id="cal-btn">Caluculate now</button>
+            <!--showing the total cost, coming dynamically imoirted from script.js after each calculation-->
+            <p id="cost">Total Cost:</p>
+        </section>
+
         <!--Listing Some Skills that are offered, dynamically imported from script.js-->
         <section id="skills-container"></section>
     </main>

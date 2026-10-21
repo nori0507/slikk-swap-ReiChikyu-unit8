@@ -1,4 +1,5 @@
-const { filterSkillsByCategory } = require('../skillswap-functions');
+const { filterSkillsByCategory, calculateTotalCost } = require('../skillswap-functions');
+
 //skills used fot testing
 const skills = [
   { title: 'Python Tutoring', category: 'Programming', price: 20 },
@@ -30,5 +31,25 @@ describe('filter function', () =>{
     //test for 'cooking' filter 
     test('should show [] for no existing category', () => {
         expect(filterSkillsByCategory(skills, 'Cooking')).toEqual([]);
+    });
+});
+
+//test for price calculate function
+describe('price calculate function', () =>{
+    //test for $20 for 2hours
+    test('shoud show $40 dollors for $20/hr lessons with 2 hours', () =>{
+        expect(calculateTotalCost(20, 2)).toBe(40);
+    });
+    //test for $0 for 3   hours
+    test('shoud show $0 dollors for $0/hr lessons with 3 hours', () =>{
+        expect(calculateTotalCost(0, 3)).toBe(0);
+    });
+    //test for $25 for 1.5 hours
+    test('shoud show $37.5 dollors for $25/hr lessons with 1.5 hours', () =>{
+        expect(calculateTotalCost(25, 1.5)).toBe(37.5);
+    });
+    //test for $20 for 0 hours
+    test('shoud show $0 dollors for $20/hr lessons with 0 hours', () =>{
+        expect(calculateTotalCost(20, 0)).toBe(0);
     });
 });

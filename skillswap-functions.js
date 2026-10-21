@@ -16,4 +16,9 @@ function filterSkillsByCategory(skills, category){
     return result;
 }
 
-module.exports = {filterSkillsByCategory};
+// function to calculate the total session cost based on price per hour and hours of the session
+function calculateTotalCost(price, hours){
+    return price*hours
+}
+
+module.exports = {filterSkillsByCategory, calculateTotalCost};
