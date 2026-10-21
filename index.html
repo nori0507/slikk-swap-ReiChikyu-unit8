@@ -37,35 +37,52 @@
             <p>Expand your learning through peer-to-peer exchange.</p>
         </section>
 
+        <!--Buttons for skill filter-->
+        <div id="filter-buttons">
+                <button class="filter" data-category="All">All</button>
+                <button class="filter" data-category="Programming">Programming</button>
+                <button class="filter" data-category="Music">Music</button>
+                <button class="filter" data-category="Career">Career</button>
+        </div>
+
         <!--Listing Some Skills that are offered-->
         <section id="skills-offered">
             <h2 id="skilloffer-head">Skills Offered in the Application</h2>
 
-            <article class="skills">
-                <h3 class="skill-name">Skill: Web Development</h3>
-                <p class="skill-description">Description: HTML, CSS, JavaScript,basics for web development!</p>
+            <article class="skills" data-category="Programming">
+                <h3 class="skill-title">Title: Python Tutoring</h3>
+                <p class="skill-category">Category: Programming</p>
                 <p class="skill-price">Price: $20/hr</p>
                 <p class="skill-provider">Provider: Sam</p>
                 <p class="skill-detail">Click here for more details!</p>
                 <p class="detail-description">If you have any bugs in your project, you are not sure where to start coding, or if you are not understanding the concept, this is the perfect place for yout to come!</p>
             </article>
 
-            <article class="skills">
-                <h3 class="skill-name">Skill: Photoshop</h3>
-                <p class="skill-description">Description: Adobe PhotoShop, Editing skills!</p>
-                <p class="skill-price">Price: $20/hr</p>
+            <article class="skills" data-category="Music">
+                <h3 class="skill-title">Title: Guitar Lessons</h3>
+                <p class="skill-category">Category: Music</p>
+                <p class="skill-price">Price: $15/hr</p>
                 <p class="skill-provider">Provider: Jessica</p>
                 <p class="skill-detail">Click here for more details!</p>
-                <p class="detail-description">You want to learn Adobe photoshop for fun? or for your future career? Then you fond the right place to be, everyone is welcomed here regardless of the photoshop skills you have!</p>
+                <p class="detail-description">You want to learn how to play the guitar!? Then you found the perfect place!</p>
             </article>
 
-            <article class="skills">
-                <h3 class="skill-name">Skill: Physics</h3>
-                <p class="skill-description">Description: Physics from the basic to advance!</p>
-                <p class="skill-price">Price: $20/hr</p>
+            <article class="skills" data-category="Career">
+                <h3 class="skill-title">Title: Resume Review</h3>
+                <p class="skill-category">Category: Career</p>
+                <p class="skill-price">Price: $0/hr</p>
                 <p class="skill-provider">Provider: Sara</p>
                 <p class="skill-detail">Click here for more details!</p>
-                <p class="detail-description">If you are struggling with Pysics homeworks, concepts, or preparing for exams, this is what you want! Make a quick appointment and slove all the problems!</p>
+                <p class="detail-description">If you are struggling with what to put on your resume, this is a greate time to figure it out!</p>
+            </article>
+
+            <article class="skills" data-category="Programming">
+                <h3 class="skill-title">Title: Web Development</h3>
+                <p class="skill-category">Category: Programming</p>
+                <p class="skill-price">Price: $25/hr</p>
+                <p class="skill-provider">Provider: Sara</p>
+                <p class="skill-detail">Click here for more details!</p>
+                <p class="detail-description">If you want to develop a website, you can get basic knowledges through the session!</p>
             </article>
         </section>
     </main>

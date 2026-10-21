@@ -39,3 +39,25 @@ document.addEventListener("DOMContentLoaded",() =>{
         })
     })
 })
+
+/* execute the function that show different results according to the filter you choose*/
+document.addEventListener("DOMContentLoaded", function() {
+    /*getting filter buttons and skill cards*/
+    const filterButtons = document.querySelectorAll(".filter");
+    const skillCards = document.querySelectorAll(".skills");
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", function() {
+            const category = button.textContent;
+
+            skillCards.forEach(card => {
+                if (category === "All" ||card.dataset.category === category) {
+                    card.style.display = "block"; /*show the skillcard if the filter is all or the filter mathches with the category*/
+                } 
+                else {
+                    card.style.display = "none"; /*do not show the skill card when the filter and category does not match*/
+                }
+            });
+        });
+    });
+});
