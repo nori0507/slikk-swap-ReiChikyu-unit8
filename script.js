@@ -119,9 +119,9 @@ function calculateTotalCost(price, hours){
 
 //connected to the calculation button. Calculate the cost and return the result once the button is clicked
 document.getElementById("cal-btn").addEventListener("click", () => {
-    const price = Number(document.getElementById("price").value);
-    const hours = Number(document.getElementById("hour").value);
-    const cost = calculateTotalCost(price, hours);
+    const price = Number(document.getElementById("price").value); // geting price 
+    const hours = Number(document.getElementById("hour").value); // getting hours 
+    const cost = calculateTotalCost(price, hours); // calculating the total
 
-    document.getElementById("cost").textContent = `Total Cost: $${cost}`;
+    document.getElementById("cost").textContent = `Total Cost: $${cost}`; //showing the cost
 })
