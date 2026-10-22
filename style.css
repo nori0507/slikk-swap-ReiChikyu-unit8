@@ -158,6 +158,75 @@ h3{
     margin-top: 50px;
 }
 
+/*styling the filter feature section*/
+#filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    background-color: palevioletred;
+    border: 4px double;
+    border-radius: 10px;
+    padding: 20px;
+    width: fit-content;
+    margin: 20px auto;
+}
+
+/*styling the filter button of filter feature and cateory button of matching skill feature*/
+.filter,.match-category{
+    display: inline-block;
+    text-decoration: none; 
+    background-color: lightblue;
+    border: 4px double;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-bottom: 6px;
+    font-size: 18px;
+}
+
+/*styling the calculatoe feature section*/
+.calculator {
+    display: block;
+    background-color: palevioletred;
+    border: 4px double;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    width: fit-content;
+    text-align: center;
+}
+
+/*styling the user match skill feature section*/
+.user-match{
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    background-color: palevioletred;
+    border: 4px double;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+/*styling the button once they are selected*/
+.selected {
+    background-color: darkcyan;
+    color: white;
+}
+
+/*styking the buttons that implement the calculation and skill matching*/
+#cal-btn, #match-btn{
+    font-size: 20px;
+    color: darkcyan;
+    background-color: whitesmoke;
+}
+
+/*styling labels*/
+label {
+    font-size: 20px;
+    font-weight: bold;
+    color: darkcyan;
+    background-color: whitesmoke;
+}
+
 /*adjusting all the styles for smaller screens*/
 @media (max-width: 600px) {
     p{
@@ -225,4 +294,41 @@ h3{
     #contact-info{
         font-size: 16px;
     }
+
+    #filter-buttons{
+        gap: 10px;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .filter,.match-category{
+        max-width: 80px;
+        font-size: 10px;
+        text-align: center;
+        padding: 10px 10px;
+    }
+
+    #cal-btn, #match-btn{
+        font-size: 14px;
+    }
+
+    label {
+        font-size: 14px;
+        font-weight: bold;
+        color: darkcyan;
+        background-color: whitesmoke;
+    }
+
+    .calculator {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-match{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
 }

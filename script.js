@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded",() =>{
 })
 
 /*contents of skills that will pop up on the UI*/
-const Skills = [
+const allSkills = [
     {
         title: "Python Tutoring",
         category: "Programming",
@@ -105,11 +105,11 @@ document.addEventListener("DOMContentLoaded", () => {
     buttons.forEach(button => {
         button.addEventListener("click", () => {
             const category =button.textContent;
-            const filteredSkills =filterSkillsByCategory(Skills,category);//filtering the skills
+            const filteredSkills =filterSkillsByCategory(allSkills,category);//filtering the skills
             displaySkills(filteredSkills);//showing the filtered skills
         });
     });
-    displaySkills(Skills);//showing all the skills when nothing is selected
+    displaySkills(allSkills);//showing all the skills when nothing is selected
 });
 
 // function to calculate the total session cost based on price per hour and hours of the session
@@ -125,3 +125,50 @@ document.getElementById("cal-btn").addEventListener("click", () => {
 
     document.getElementById("cost").textContent = `Total Cost: $${cost}`; //showing the cost
 })
+
+// function for matching the skills with the user needs
+function matchSkillsToUser(userNeeds, skills){
+    const result =[];
+    for(const skill of skills){
+        if (userNeeds.category === 'All') { //case where category is all
+            if(userNeeds.maxPrice >= skill.price){ //checking the price requirement
+                result.push(skill);
+            }
+        }
+        else if(userNeeds.category === skill.category){ // case where category matches
+            if(userNeeds.maxPrice >= skill.price){ // checkingthe price requirement
+                result.push(skill);
+            }
+        }
+    }
+    
+    return result;
+}
+
+//connected top the category buttons and macPrice input,and shows skill cards according to the users' need
+document.addEventListener("DOMContentLoaded", () => {
+    let selectedCategory = "All";//default is when the "all" category is selected
+    document.querySelectorAll(".match-category").forEach(button => {
+        button.addEventListener("click", () => {
+            selectedCategory = button.textContent;//getting thecategory of the button that is clicked
+        });
+    });
+
+    const matchButton =document.getElementById("match-btn");
+    matchButton.addEventListener("click", () => {
+        const maxPrice =Number(document.getElementById("maxPrice").value);//getting max price from user input
+        const userNeeds = {category: selectedCategory, maxPrice: maxPrice};//determing user needs
+        const matches =matchSkillsToUser(userNeeds, allSkills);
+        displaySkills(matches);
+    });
+});
+
+// highlight the selected skill buttons for the filter feature and category feature of user matching skills
+document.querySelectorAll(".filter, .match-category" ).forEach(filterButton => {
+    filterButton.addEventListener("click", () => {
+        document.querySelectorAll(".filter, .match-category").forEach(filterBtn => {
+            filterBtn.classList.remove("selected"); //remove all the highlight 
+        });
+        filterButton.classList.add("selected");//highlight the one that is selected
+    });
+});

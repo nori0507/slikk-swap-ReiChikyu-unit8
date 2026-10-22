@@ -1,4 +1,4 @@
-const { filterSkillsByCategory, calculateTotalCost } = require('../skillswap-functions');
+const { filterSkillsByCategory, calculateTotalCost, matchSkillsToUser } = require('../skillswap-functions');
 
 //skills used fot testing
 const skills = [
@@ -51,5 +51,36 @@ describe('price calculate function', () =>{
     //test for $20 for 0 hours
     test('shoud show $0 dollors for $20/hr lessons with 0 hours', () =>{
         expect(calculateTotalCost(20, 0)).toBe(0);
+    });
+});
+
+//test for match skill to user function
+describe('match skills to  user function', () => {
+    //test for programming category and under or eauql to 30 dollars
+    test('should show skills that is categorized as "programming" and under or equal to 30 dollars', () =>{
+        const user1Needs = { category: 'Programming', maxPrice: 30 };
+        expect(matchSkillsToUser(user1Needs, skills)).toEqual([ 
+            { title: 'Python Tutoring', category: 'Programming', price: 20 }, 
+            { title: 'Web Development', category: 'Programming', price: 25 } 
+        ]);
+    });
+    //test for programming category and under or eauql to 20 dollars
+    test('should show skills that is categorized as "programming" and under or equal to 20 dollars', () => {
+        const user2Needs = { category: 'Programming', maxPrice: 20 };
+        expect(matchSkillsToUser(user2Needs, skills)).toEqual([ 
+            { title: 'Python Tutoring', category: 'Programming', price: 20 }
+        ]);
+    });
+    //test for cooking category and under or equal to 100 dollars
+    test('should show skills that is categorized as "Cooking" and under or equal to 100 dollars', () => {
+        const user3Needs = { category: 'Cooking', maxPrice: 100 };
+        expect(matchSkillsToUser(user3Needs, skills)).toEqual([]); 
+    });
+    //test for career category and under or equal to 0 dollars
+    test('should show skills that is categorized as "Career" and under or equal to 0 dollars', () => {
+        const user4Needs = { category: 'Career', maxPrice: 0 };
+        expect(matchSkillsToUser(user4Needs, skills)).toEqual([
+            { title: 'Resume Review', category: 'Career', price: 0 }
+        ]); // [ { title: 'Resume Review', category: 'Career', price: 0 } ]      
     });
 });
