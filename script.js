@@ -162,3 +162,13 @@ document.addEventListener("DOMContentLoaded", () => {
         displaySkills(matches);
     });
 });
+
+// highlight the selected skill buttons for the filter feature and category feature of user matching skills
+document.querySelectorAll(".filter, .match-category" ).forEach(filterButton => {
+    filterButton.addEventListener("click", () => {
+        document.querySelectorAll(".filter, .match-category").forEach(filterBtn => {
+            filterBtn.classList.remove("selected"); //remove all the highlight 
+        });
+        filterButton.classList.add("selected");//highlight the one that is selected
+    });
+});
