@@ -39,10 +39,10 @@
 
         <!--Buttons for skill filter-->
         <div id="filter-buttons">
-                <button class="filter" data-category="All">All</button>
-                <button class="filter" data-category="Programming">Programming</button>
-                <button class="filter" data-category="Music">Music</button>
-                <button class="filter" data-category="Career">Career</button>
+                <button class="filter">All</button>
+                <button class="filter">Programming</button>
+                <button class="filter">Music</button>
+                <button class="filter">Career</button>
         </div>
 
         <!--calculator UI-->
@@ -57,6 +57,18 @@
             <button id="cal-btn">Caluculate now</button>
             <!--showing the total cost, coming dynamically imoirted from script.js after each calculation-->
             <p id="cost">Total Cost:</p>
+        </section>
+
+        <section class="user-match">
+            <!--buttons for skill categories-->
+            <button class="match-category">All</button>
+            <button class="match-category">Programming</button>
+            <button class="match-category">Music</button>
+            <button class="match-category">Career</button>
+            <!--let user input the mx price-->
+            <label for="maxPrice">Price ($/hr)</label>
+            <input type="number" id="maxPrice">
+            <button id="match-btn">Find your match now!</button>
         </section>
 
         <!--Listing Some Skills that are offered, dynamically imported from script.js-->
