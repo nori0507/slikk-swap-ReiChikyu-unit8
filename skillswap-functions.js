@@ -21,4 +21,23 @@ function calculateTotalCost(price, hours){
     return price*hours
 }
 
-module.exports = {filterSkillsByCategory, calculateTotalCost};
+// function for matching the skills with the user needs
+function matchSkillsToUser(userNeeds, skills){
+    const result =[];
+    for(const skill of skills){
+        if (userNeeds.category === 'All') { //case where category is all
+            if(userNeeds.maxPrice >= skill.price){ //checking the price requirement
+                result.push(skill);
+            }
+        }
+        else if(userNeeds.category === skill.category){ // case where category matches
+            if(userNeeds.maxPrice >= skill.price){ // checkingthe price requirement
+                result.push(skill);
+            }
+        }
+    }
+    
+    return result;
+}
+
+module.exports = {filterSkillsByCategory, calculateTotalCost, matchSkillsToUser};

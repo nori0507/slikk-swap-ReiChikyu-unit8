@@ -1,4 +1,4 @@
-const { filterSkillsByCategory, calculateTotalCost } = require('../skillswap-functions');
+const { filterSkillsByCategory, calculateTotalCost, matchSkillsToUser } = require('../skillswap-functions');
 
 //skills used fot testing
 const skills = [
@@ -61,7 +61,7 @@ describe('match skills to  user function', () => {
         const user1Needs = { category: 'Programming', maxPrice: 30 };
         expect(matchSkillsToUser(user1Needs, skills)).toEqual([ 
             { title: 'Python Tutoring', category: 'Programming', price: 20 }, 
-            { title: 'JavaScript Help', category: 'Programming', price: 25 } 
+            { title: 'Web Development', category: 'Programming', price: 25 } 
         ]);
     });
     //test for programming category and under or eauql to 20 dollars
